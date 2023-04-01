@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, editTask } from "../features/tasks/taskSlice";
+import { addTask, editTask } from "../../features/tasks/taskSlice";
 import { v4 as uuid } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
+import styles from "./TaskForm.module.css";
 
 const TaskForm = () => {
   const [task, setTask] = useState({
@@ -46,7 +47,7 @@ const TaskForm = () => {
   }, [params.id, tasks]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
         name="title"
         type="text"
